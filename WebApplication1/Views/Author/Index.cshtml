@@ -1,0 +1,31 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+@model IEnumerable<Authors>
+
+<h2>Index</h2>
+
+@Html.ActionLink("Добавить нового автора", "Create", "Author")
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th scope="col">First name</th>
+            <th scope="col">Last name</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (Authors item in Model)
+        {
+           <tr>
+              <td scope="row">@item.FirstName</td>
+              <td scope="row">@item.LastName</td>
+              <td scope="row">@Html.ActionLink("Изменить","Edit","Author",new { id = @item.Id },null)</td>
+              <td scope="row">@Html.ActionLink("Удалить","Delete","Author",new { id = @item.Id },null)</td>
+           </tr>
+        }
+    </tbody>
+</table>
+
+

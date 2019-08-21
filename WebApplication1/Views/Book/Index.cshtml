@@ -1,0 +1,32 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+
+@model IEnumerable<Books>
+
+<h2>Index</h2>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th scope="col">Id</th>
+            <th scope="col">Author id</th>
+            <th scope="col">Title</th>
+            <th scope="col">Pages</th>
+            <th scope="col">Price</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (Books item in Model)
+        {
+            <tr>
+                <td scope="row">@item.Id</td>
+                <td scope="row">@item.AuthorId</td>
+                <td scope="row">@item.Title</td>
+                <td scope="row">@item.Pages</td>
+                <td scope="row">@item.Price</td>
+            </tr>
+        }
+    </tbody>
+</table>
