@@ -17,6 +17,7 @@ namespace WebApplication1.Controllers
         {
             ViewBag.Message = "Your application description page.";
 
+
             return View();
         }
 
@@ -24,6 +25,7 @@ namespace WebApplication1.Controllers
         {
             ViewBag.Message = "Your contact page.";
  
+
             return View();
         }
     }
