@@ -7,6 +7,8 @@
 
 <h2>Index</h2>
 
+@Html.ActionLink("Добавить новую книгу", "Create")
+
 <table class="table table-striped">
     <thead>
         <tr>
@@ -26,6 +28,7 @@
                 <td scope="row">@item.Title</td>
                 <td scope="row">@item.Pages</td>
                 <td scope="row">@item.Price</td>
+                <td scope="row">@Html.ActionLink("Изменить","Edit","Book",new { @item.Id, @item.Title },null)</td>
             </tr>
         }
     </tbody>
