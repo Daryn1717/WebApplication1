@@ -1,12 +1,24 @@
 ﻿
 @{
     ViewBag.Title = "Index";
+    var firstAuthor = ViewData["FirstNewAuthor"] as Authors;
+    var secondAuthor = ViewBag.SecondNewAuthor as Authors;
 }
 @model IEnumerable<Authors>
 
 <h2>Index</h2>
+@*<h3>@ViewData["Comment"]</h3>
+<h3>@ViewBag.SecondComment</h3>*@
 
 @Html.ActionLink("Добавить нового автора", "Create", "Author")
+
+<br />
+<hr />
+<h3>@firstAuthor.Id)@firstAuthor.LastName @firstAuthor.FirstName</h3>
+<br />
+<h3>@secondAuthor.Id)@secondAuthor.LastName @secondAuthor.FirstName</h3>
+<hr />
+<br />
 
 <table class="table table-striped">
     <thead>

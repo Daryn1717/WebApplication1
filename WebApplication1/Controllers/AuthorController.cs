@@ -12,6 +12,13 @@ namespace WebApplication1.Controllers
         public ActionResult Index()
         {
             List<Authors> authors;
+
+            //ViewData["Comment"] = "New comment";
+            //ViewBag.SecondComment = "Second new comment";
+
+            ViewData["FirstNewAuthor"] = new Authors() { Id = 3, FirstName = "Daryn", LastName = "Zatov" };
+            ViewBag.SecondNewAuthor = new Authors() { Id = 4, FirstName = "Darmen", LastName = "Zatov" };
+
             using (Model1 db = new Model1())
             {
                 authors = db.Authors.ToList();             
@@ -58,6 +65,10 @@ namespace WebApplication1.Controllers
         [HttpGet]
         public ActionResult Create()
         {
+            using (Model1 db = new Model1())
+            {
+                ViewBag.AuthorList = new SelectList(db.Authors.ToList(),"Id","FirstName");
+            }
             return View();
         }
 
