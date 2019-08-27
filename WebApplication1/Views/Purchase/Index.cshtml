@@ -1,0 +1,13 @@
+﻿@using WebApplication1.Controllers;
+@{
+    ViewBag.Title = "Index";
+}
+
+@model List<MyPurchase>
+
+<h2>Index</h2>
+
+@foreach(var item in Model)
+{
+    <p>@item.Id  :  @item.FIO  -  @item.Title  | @Html.ActionLink("Изменить","Edit","Purchase",new { item.Id },null)</p>
+}

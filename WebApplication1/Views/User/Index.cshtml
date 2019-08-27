@@ -1,0 +1,15 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+@model List<Users>
+
+@foreach(var item in Model)
+{
+    <p>@item.Id  :  @item.FIO  |  @Html.ActionLink("Изменить", "Edit", "User", new { Id = @item.Id }, null) | @Html.ActionLink("Удалить", "Delete", "User", new { Id = @item.Id }, null)</p>
+    <hr />
+}
+

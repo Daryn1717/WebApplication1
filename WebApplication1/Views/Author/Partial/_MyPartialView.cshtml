@@ -1,0 +1,8 @@
+﻿@using WebApplication1.Controllers;
+
+<h2>My test partial view</h2>
+
+@foreach(var item in (List<TopAuthor>)ViewBag.TopAuthors)
+{
+    <p>@item.Id)@item.FirstName @item.LastName - @item.SumPrice</p>
+}

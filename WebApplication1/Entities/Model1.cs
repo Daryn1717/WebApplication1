@@ -14,6 +14,8 @@ namespace WebApplication1
 
         public virtual DbSet<Authors> Authors { get; set; }
         public virtual DbSet<Books> Books { get; set; }
+        public virtual DbSet<Users> Users { get; set; }
+        public virtual DbSet<Purchases> Purchases { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {

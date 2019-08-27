@@ -160,6 +160,8 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\AuthorController.cs" />
     <Compile Include="Controllers\BookController.cs" />
+    <Compile Include="Controllers\PurchaseController.cs" />
+    <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Entities\Authors.cs" />
     <Compile Include="Entities\Books.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -168,7 +170,14 @@
     </Compile>
     <Compile Include="Entities\Model1.cs" />
     <Compile Include="Helpers\EditorHelper.cs" />
+    <Compile Include="Entities\Purchases.cs" />
+    <Compile Include="Migrations\201908261433349_CreateTable_PurchasesAndUsers.cs" />
+    <Compile Include="Migrations\201908261433349_CreateTable_PurchasesAndUsers.Designer.cs">
+      <DependentUpon>201908261433349_CreateTable_PurchasesAndUsers.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Entities\Users.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap.css" />
@@ -216,6 +225,14 @@
     <Content Include="Views\Author\Edit.cshtml" />
     <Content Include="Views\Book\Create.cshtml" />
     <Content Include="Views\Book\Edit.cshtml" />
+    <Content Include="Views\User\Index.cshtml" />
+    <Content Include="Views\User\Create.cshtml" />
+    <Content Include="Views\User\Edit.cshtml" />
+    <Content Include="Views\Purchase\Index.cshtml" />
+    <Content Include="Views\Purchase\Create.cshtml" />
+    <Content Include="Views\Author\Partial\_MyPartialView.cshtml" />
+    <Content Include="Views\Purchase\Partial\_UserPartialView.cshtml" />
+    <Content Include="Views\Purchase\Edit.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -228,6 +245,11 @@
     <Content Include="packages.config" />
     <None Include="Project_Readme.html" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201908261433349_CreateTable_PurchasesAndUsers.resx">
+      <DependentUpon>201908261433349_CreateTable_PurchasesAndUsers.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

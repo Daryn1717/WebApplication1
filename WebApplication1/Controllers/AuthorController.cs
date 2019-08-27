@@ -7,6 +7,13 @@ using System.Web.Mvc;
 
 namespace WebApplication1.Controllers
 {
+    public class TopAuthor
+    {
+        public int Id { get; set; }
+        public string FirstName { get; set; }
+        public string LastName { get; set; }
+        public int? SumPrice { get; set; }
+    }
     public class AuthorController : Controller
     {
         public ActionResult Index()
@@ -19,9 +26,23 @@ namespace WebApplication1.Controllers
             ViewData["FirstNewAuthor"] = new Authors() { Id = 3, FirstName = "Daryn", LastName = "Zatov" };
             ViewBag.SecondNewAuthor = new Authors() { Id = 4, FirstName = "Darmen", LastName = "Zatov" };
 
+
+    
+            List<TopAuthor> topAuthors = new List<TopAuthor>();
             using (Model1 db = new Model1())
             {
-                authors = db.Authors.ToList();             
+                authors = db.Authors.ToList();
+                foreach(Authors author in db.Authors.ToList())
+                {
+                    topAuthors.Add(new TopAuthor()
+                    {
+                        Id = author.Id,
+                        FirstName = author.FirstName,
+                        LastName = author.LastName,
+                        SumPrice = db.Books.Where(b => b.AuthorId == author.Id).Sum(b => b.Price)
+                    });
+                }
+                ViewBag.TopAuthors = topAuthors.OrderByDescending(a => a.SumPrice).ToList();                                                                                         
             }
             return View(authors);
         }
@@ -81,6 +102,12 @@ namespace WebApplication1.Controllers
                 db.SaveChanges();
             }
             return Redirect("Index");
+        }
+
+
+        public ActionResult MyPartialView()
+        {
+            return PartialView();
         }
     }
 }
