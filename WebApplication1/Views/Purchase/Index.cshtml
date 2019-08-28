@@ -5,9 +5,16 @@
 
 @model List<MyPurchase>
 
-<h2>Index</h2>
+<h2>Все покупки :</h2>
+
+<h3>@Html.ActionLink("Скачать список должников","Download","Purchase",null)</h3>
 
 @foreach(var item in Model)
 {
-    <p>@item.Id  :  @item.FIO  -  @item.Title  | @Html.ActionLink("Изменить","Edit","Purchase",new { item.Id },null)</p>
+    <p>@item.Id  :  @item.FIO  -  @item.Title - @item.DateOfReturn 
+    @if (item.SendNotification)
+    {
+        <span>| @Html.ActionLink("Отправить уведомление","Send","Purchase",new { item.Id },null)</span>
+    }
+    | @Html.ActionLink("Изменить","Edit","Purchase",new { item.Id },null)</p>
 }

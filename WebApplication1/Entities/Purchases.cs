@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
@@ -17,6 +18,11 @@ namespace WebApplication1
         [Required]
         [ForeignKey("Users")]
         public int UserId { get; set; }
+        public int Term { get; set; }
+        public DateTime DateOfPurchase { get; set; }
+        [DataType(DataType.Date)]
+        [DisplayFormat(DataFormatString = "{0:dd-MM-yyyy}", ApplyFormatInEditMode = true)]
+        public DateTime? DateOfReturn { get; set; }
         public Books Books { get; set; }
         public Users Users { get; set; }
     }
